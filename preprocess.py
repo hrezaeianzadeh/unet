@@ -106,22 +106,4 @@ def transform_data(data_dir='data/all/', desired_size=262, save_data=False):
             # X.append(numpy.expand_dims(im_resize(new_gray), axis=0))
             X.append(numpy.expand_dims(numpy.expand_dims(im_resize(new_gray), axis=0), axis=3))
             y.append(numpy.expand_dims(numpy.expand_dims(im_resize(new_edge), axis=0), axis=3))
-    # X = numpy.concatenate(X, axis=0)
-    # y = numpy.concatenate(y, axis=0)
-    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=True)
-    # if save_data is True:
-    #     os.system('mkdir -p data/padded/' + sub_dir)
-    #     for i in range(X_train.shape[0]):
-    #         os.system('mkdir -p data/padded/train/')
-    #         x = X_train[i]
-    #         y = y_train[i]
-    #         print('rgb', numpy.max(numpy.squeeze(x)[:, :, 0:3]))
-    #         print('elev', numpy.max(numpy.squeeze(x)[:, :, 3]))
-    #         print('rgbe', numpy.max(numpy.squeeze(x)))
-    #         print('edge', numpy.max(numpy.squeeze(y)))
-    #         # cv2.imwrite(os.path.join('data/padded/train/', str(i) + '_RGB.tif'), numpy.squeeze(x)[:, :, 0:3])
-    #         # cv2.imwrite(os.path.join('data/padded/train/', str(i) + '_ELEV.tif'), new_elevation)
-    #         # cv2.imwrite(os.path.join('data/padded/train/', str(i) + '_RGBE.tif'), rgbe)
-    #         # cv2.imwrite(os.path.join('data/padded/train/', str(i) + '_EDGE.tif'), new_edge)
-    #         break
     return numpy.concatenate(X, axis=0), numpy.concatenate(y, axis=0)
